@@ -12,7 +12,7 @@ _DIR = os.path.dirname(os.path.abspath(__file__))
 # ==========================================
 st.set_page_config(page_title="2026 World Cup Predictor", page_icon="🏆", layout="centered")
 
-st.title("🏆 FIFA World Cup 2026 Predictor")
+st.title("FIFA World Cup 2026 Predictor")
 st.markdown("### Powered by Machine Learning & Historical Data")
 st.write("Select two teams below to simulate a high-stakes competitive match outcome.")
 
@@ -106,7 +106,7 @@ with col2:
 
 if st.button("🚀 Run Match Simulation", use_container_width=True):
     if home_team == away_team:
-        st.warning("⚠️ A team cannot play against itself! Please select two different countries.")
+        st.warning("A team cannot play against itself! Please select two different countries.")
     else:
         # Get latest form metrics
         try: home_f = df_teams[df_teams['team'] == home_team]['form_last_5'].iloc[-1]
@@ -120,7 +120,7 @@ if st.button("🚀 Run Match Simulation", use_container_width=True):
         probabilities = model.predict_proba(features)[0]
         
         # Display Interactive Output
-        st.markdown("### 📊 Simulation Results")
+        st.markdown("### Simulation Results")
         
         st.write(f"**{home_team} Wins:** {probabilities[2]*100:.1f}%")
         st.progress(float(probabilities[2]))
